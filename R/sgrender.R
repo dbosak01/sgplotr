@@ -114,6 +114,7 @@ sgrender <- function(plt, output_type = NULL, file_path = NULL, height = NULL,
 # Need adjustments to height, width, etc. for different output types.
 # These adjustments should be invisible to the user.
 #' @import grDevices
+#' @import svglite
 #' @noRd
 setup_output <- function(sgr) {
 
@@ -182,12 +183,12 @@ setup_output <- function(sgr) {
       wdth <- sgr$width
     }
 
-    if (capabilities("cairo")) {
-      svg(filename = pth, height = hgt, width = wdth)
-    } else {
+    # if (capabilities("cairo")) {
+    #   svg(filename = pth, height = hgt, width = wdth)
+    # } else {
       svglite::svglite(pth, height = hgt, width = wdth)
 
-    }
+    # }
 
   } else if (tolower(sgr$output_type) %in% c("jpg", "jpeg")) {
 

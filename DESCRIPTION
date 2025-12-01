@@ -18,12 +18,12 @@ RoxygenNote: 7.3.3
 Suggests: 
     knitr,
     rmarkdown,
-    svglite,
     testthat (>= 3.0.0)
 Imports:
     graphics,
     grDevices,
     devEMF, 
-    stats
+    stats, 
+    svglite
 Config/testthat/edition: 3
 VignetteBuilder: knitr
