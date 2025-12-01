@@ -33,70 +33,70 @@ test_that("sgrender1: Parameters work.", {
 
 })
 
-# test_that("sgrender2: Render output types works.", {
-#
-#
-#   # Single variable only
-#   p <- sgplot(mtcars, titles = c("MTCARS by Cylinders")) |>
-#     sg_vbar("cyl")
-#
-#   # JPG
-#   fp <- file.path(base_path, "output/test.jpg")
-#
-#   if (file.exists(fp)) {
-#     file.remove(fp)
-#   }
-#
-#   res <- sgrender(p, output_type = "jpg", file_path = fp)
-#
-#   expect_equal(file.exists(res$path), TRUE)
-#
-#   # BMP
-#   fp <- file.path(base_path, "output/test.bmp")
-#
-#   if (file.exists(fp)) {
-#     file.remove(fp)
-#   }
-#
-#   res <- sgrender(p, output_type = "bmp", file_path = fp)
-#
-#   expect_equal(file.exists(res$path), TRUE)
-#
-#   # PNG
-#   fp <- file.path(base_path, "output/test.png")
-#
-#   if (file.exists(fp)) {
-#     file.remove(fp)
-#   }
-#
-#   res <- sgrender(p, output_type = "png", file_path = fp)
-#
-#   expect_equal(file.exists(res$path), TRUE)
-#
-#   # SVG
-#   fp <- file.path(base_path, "output/test.svg")
-#
-#   if (file.exists(fp)) {
-#     file.remove(fp)
-#   }
-#
-#   res <- sgrender(p, output_type = "svg", file_path = fp)
-#
-#   expect_equal(file.exists(res$path), TRUE)
-#
-#   # TIF
-#   fp <- file.path(base_path, "output/test.tif")
-#
-#   if (file.exists(fp)) {
-#     file.remove(fp)
-#   }
-#
-#   res <- sgrender(p, output_type = "tif", file_path = fp)
-#
-#   expect_equal(file.exists(res$path), TRUE)
-#
-#
-# })
+test_that("sgrender2: Render output types works.", {
+
+
+  # Single variable only
+  p <- sgplot(mtcars, titles = c("MTCARS by Cylinders")) |>
+    sg_vbar("cyl")
+
+  # JPG
+  fp <- file.path(base_path, "output/test.jpg")
+
+  if (file.exists(fp)) {
+    file.remove(fp)
+  }
+
+  res <- sgrender(p, output_type = "jpg", file_path = fp)
+
+  expect_equal(file.exists(res$path), TRUE)
+
+  # # BMP
+  # fp <- file.path(base_path, "output/test.bmp")
+  #
+  # if (file.exists(fp)) {
+  #   file.remove(fp)
+  # }
+  #
+  # res <- sgrender(p, output_type = "bmp", file_path = fp)
+  #
+  # expect_equal(file.exists(res$path), TRUE)
+  #
+  # # PNG
+  # fp <- file.path(base_path, "output/test.png")
+  #
+  # if (file.exists(fp)) {
+  #   file.remove(fp)
+  # }
+  #
+  # res <- sgrender(p, output_type = "png", file_path = fp)
+  #
+  # expect_equal(file.exists(res$path), TRUE)
+  #
+  # # SVG
+  # fp <- file.path(base_path, "output/test.svg")
+  #
+  # if (file.exists(fp)) {
+  #   file.remove(fp)
+  # }
+  #
+  # res <- sgrender(p, output_type = "svg", file_path = fp)
+  #
+  # expect_equal(file.exists(res$path), TRUE)
+  #
+  # # TIF
+  # fp <- file.path(base_path, "output/test.tif")
+  #
+  # if (file.exists(fp)) {
+  #   file.remove(fp)
+  # }
+  #
+  # res <- sgrender(p, output_type = "tif", file_path = fp)
+  #
+  # expect_equal(file.exists(res$path), TRUE)
+
+
+})
 
 
 
