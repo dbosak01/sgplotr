@@ -7,32 +7,32 @@ base_path <- tempdir()
 dev <- FALSE
 
 
-# test_that("sgrender1: Parameters work.", {
-#
-#   p <- sgplot(mtcars, titles = c("MTCARS by Cylinders")) |>
-#     sg_vbar("cyl")
-#
-#
-#   res <- sgrender(p, output_type = NULL, file_path = "here", height = 4,
-#                   width = 6, units = "in")
-#
-#
-#   expect_equal("sgplot" %in% class(res$plot), TRUE)
-#   expect_equal(res$file_path, "here")
-#   expect_equal(res$height, 4)
-#   expect_equal(res$width, 6)
-#   expect_equal(res$units, "in")
-#   expect_equal(is.null(res$output_type), TRUE)
-#
-#
-#   expect_error(sgrender(p, output_type = "bork"))
-#   expect_error(sgrender(p, output_type = "jpg", units = "bork"))
-#   expect_error(sgrender(p, output_type = "jpg", units = NULL))
-#   expect_error(sgrender(p, output_type = "jpg", height = "two"))
-#   expect_error(sgrender(p, output_type = "jpg", width = "three"))
-#
-# })
-#
+test_that("sgrender1: Parameters work.", {
+
+  p <- sgplot(mtcars, titles = c("MTCARS by Cylinders")) |>
+    sg_vbar("cyl")
+
+
+  res <- sgrender(p, output_type = NULL, file_path = "here", height = 4,
+                  width = 6, units = "in")
+
+
+  expect_equal("sgplot" %in% class(res$plot), TRUE)
+  expect_equal(res$file_path, "here")
+  expect_equal(res$height, 4)
+  expect_equal(res$width, 6)
+  expect_equal(res$units, "in")
+  expect_equal(is.null(res$output_type), TRUE)
+
+
+  expect_error(sgrender(p, output_type = "bork"))
+  expect_error(sgrender(p, output_type = "jpg", units = "bork"))
+  expect_error(sgrender(p, output_type = "jpg", units = NULL))
+  expect_error(sgrender(p, output_type = "jpg", height = "two"))
+  expect_error(sgrender(p, output_type = "jpg", width = "three"))
+
+})
+
 # test_that("sgrender2: Render output types works.", {
 #
 #
