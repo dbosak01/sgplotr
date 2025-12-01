@@ -79,6 +79,10 @@ sgrender <- function(plt, output_type = NULL, file_path = NULL, height = NULL,
   ret$width <- width
   ret$units <- units
 
+  # To avoid PDF file being created
+  # Actually created on call to par()
+  pdf(NULL)
+
   # Store current margins
   # May be changed in sub-functions
   op <- par()

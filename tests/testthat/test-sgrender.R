@@ -101,9 +101,9 @@ test_that("sgrender2: Render output types works.", {
 
 
 
-#
-#
-#
+
+
+
 # test_that("sgrender3: Render hbar works.", {
 #
 #   dat <- mtcars
@@ -147,5 +147,5 @@ test_that("sgrender2: Render output types works.", {
 #   expect_equal(TRUE, TRUE)
 #
 # })
-#
-#
+
+
