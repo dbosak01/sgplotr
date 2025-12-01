@@ -182,7 +182,12 @@ setup_output <- function(sgr) {
       wdth <- sgr$width
     }
 
-    svg(filename = pth, height = hgt, width = wdth)
+    if (capabilities("cairo")) {
+      svg(filename = pth, height = hgt, width = wdth)
+    } else {
+      svglite::svglite(pth, height = hgt, width = wdth)
+
+    }
 
   } else if (tolower(sgr$output_type) %in% c("jpg", "jpeg")) {
 
