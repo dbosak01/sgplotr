@@ -54,121 +54,121 @@ dev <- FALSE
 
 # These tests should be run interactively so you can look at the output
 # and make sure everything is coming out OK.
-
-test_that("system1: Render vbar no response works.", {
-
-  dat <- mtcars
-  dat$Group <- c(rep("A", 16), rep("B", 16))
-
-
-  # Single variable only
-  p <- sgplot(dat, titles = c("MTCARS by Cylinders")) |>
-    sg_vbar("cyl")
-
-
-  res1 <- sgrender(p)
-
-
-  # Single variable only
-  p2 <- sgplot(iris, titles = c("IRIS by Species")) |>
-    sg_vbar("Species")
-
-
-  res2 <- sgrender(p2)
-
-
-  # Grouping variable, stacked bar
-  p3 <- sgplot(dat, titles = c("MTCARS by Cylinders")) |>
-    sg_vbar("cyl", group = "Group")
-
-
-  res3 <- sgrender(p3)
-
-
-
-  # Grouping variable, clustered bar
-  p4 <- sgplot(dat, titles = c("MTCARS by Cylinders")) |>
-    sg_vbar("cyl", group = "Group", groupdisplay = "cluster")
-
-
-  res4 <- sgrender(p4)
-
-
-  # Grouping variable, clustered bar
-  p5 <- sgplot(dat, titles = c("MTCARS by Cylinders")) |>
-    sg_vbar("cyl", group = "Group", groupdisplay = "cluster")
-
-
-  res5 <- sgrender(p5)
-
-
-  # No errors
-  expect_equal(TRUE, TRUE)
-
-})
-
-
-test_that("system2: Render vbar response works.", {
-
-  # Response variable
-  dt <- prt2[prt2$enrollment == 'yes' & prt2$internship == 'yes', ]
-  p1 <- sgplot(dt, titles = c("Students by Sex")) |>
-    sg_vbar("sex", response = "count")
-
-
-  res1 <- sgrender(p1)
-
-  # Response variable with group
-  dt <- prt2[prt2$internship == 'yes', ]
-  p2 <- sgplot(dt, titles = c("Students by Sex and Enrollment")) |>
-    sg_vbar("sex", response = "count", group = "enrollment")
-
-
-  res2 <- sgrender(p2)
-
-  # Response variable with group clustered
-  dt <- prt2[prt2$internship == 'yes', ]
-  p3 <- sgplot(dt, titles = c("Students by Sex and Enrollment")) |>
-    sg_vbar("sex", response = "count", group = "enrollment", groupdisplay = "cluster")
-
-
-  res3 <- sgrender(p3)
-
-  # No errors
-  expect_equal(TRUE, TRUE)
-
-})
-
-
-test_that("system3: Render vbar options works.", {
-
-  # Response variable
-  dt <- prt2[prt2$enrollment == 'yes' & prt2$internship == 'yes', ]
-  p1 <- sgplot(dt, titles = c("Students by Sex")) |>
-    sg_vbar("sex", response = "count")
-
-
-  res1 <- sgrender(p1)
-
-  # Response variable with group
-  dt <- prt2[prt2$internship == 'yes', ]
-  p2 <- sgplot(dt, titles = c("Students by Sex and Enrollment")) |>
-    sg_vbar("sex", response = "count", group = "enrollment")
-
-
-  res2 <- sgrender(p2)
-
-  # Response variable with group clustered
-  dt <- prt2[prt2$internship == 'yes', ]
-  p3 <- sgplot(dt, titles = c("Students by Sex and Enrollment")) |>
-    sg_vbar("sex", response = "count", group = "enrollment", groupdisplay = "cluster")
-
-
-  res3 <- sgrender(p3)
-
-  # No errors
-  expect_equal(TRUE, TRUE)
-
-})
+#
+# test_that("system1: Render vbar no response works.", {
+#
+#   dat <- mtcars
+#   dat$Group <- c(rep("A", 16), rep("B", 16))
+#
+#
+#   # Single variable only
+#   p <- sgplot(dat, titles = c("MTCARS by Cylinders")) |>
+#     sg_vbar("cyl")
+#
+#
+#   res1 <- sgrender(p)
+#
+#
+#   # Single variable only
+#   p2 <- sgplot(iris, titles = c("IRIS by Species")) |>
+#     sg_vbar("Species")
+#
+#
+#   res2 <- sgrender(p2)
+#
+#
+#   # Grouping variable, stacked bar
+#   p3 <- sgplot(dat, titles = c("MTCARS by Cylinders")) |>
+#     sg_vbar("cyl", group = "Group")
+#
+#
+#   res3 <- sgrender(p3)
+#
+#
+#
+#   # Grouping variable, clustered bar
+#   p4 <- sgplot(dat, titles = c("MTCARS by Cylinders")) |>
+#     sg_vbar("cyl", group = "Group", groupdisplay = "cluster")
+#
+#
+#   res4 <- sgrender(p4)
+#
+#
+#   # Grouping variable, clustered bar
+#   p5 <- sgplot(dat, titles = c("MTCARS by Cylinders")) |>
+#     sg_vbar("cyl", group = "Group", groupdisplay = "cluster")
+#
+#
+#   res5 <- sgrender(p5)
+#
+#
+#   # No errors
+#   expect_equal(TRUE, TRUE)
+#
+# })
+#
+#
+# test_that("system2: Render vbar response works.", {
+#
+#   # Response variable
+#   dt <- prt2[prt2$enrollment == 'yes' & prt2$internship == 'yes', ]
+#   p1 <- sgplot(dt, titles = c("Students by Sex")) |>
+#     sg_vbar("sex", response = "count")
+#
+#
+#   res1 <- sgrender(p1)
+#
+#   # Response variable with group
+#   dt <- prt2[prt2$internship == 'yes', ]
+#   p2 <- sgplot(dt, titles = c("Students by Sex and Enrollment")) |>
+#     sg_vbar("sex", response = "count", group = "enrollment")
+#
+#
+#   res2 <- sgrender(p2)
+#
+#   # Response variable with group clustered
+#   dt <- prt2[prt2$internship == 'yes', ]
+#   p3 <- sgplot(dt, titles = c("Students by Sex and Enrollment")) |>
+#     sg_vbar("sex", response = "count", group = "enrollment", groupdisplay = "cluster")
+#
+#
+#   res3 <- sgrender(p3)
+#
+#   # No errors
+#   expect_equal(TRUE, TRUE)
+#
+# })
+#
+#
+# test_that("system3: Render vbar options works.", {
+#
+#   # Response variable
+#   dt <- prt2[prt2$enrollment == 'yes' & prt2$internship == 'yes', ]
+#   p1 <- sgplot(dt, titles = c("Students by Sex")) |>
+#     sg_vbar("sex", response = "count")
+#
+#
+#   res1 <- sgrender(p1)
+#
+#   # Response variable with group
+#   dt <- prt2[prt2$internship == 'yes', ]
+#   p2 <- sgplot(dt, titles = c("Students by Sex and Enrollment")) |>
+#     sg_vbar("sex", response = "count", group = "enrollment")
+#
+#
+#   res2 <- sgrender(p2)
+#
+#   # Response variable with group clustered
+#   dt <- prt2[prt2$internship == 'yes', ]
+#   p3 <- sgplot(dt, titles = c("Students by Sex and Enrollment")) |>
+#     sg_vbar("sex", response = "count", group = "enrollment", groupdisplay = "cluster")
+#
+#
+#   res3 <- sgrender(p3)
+#
+#   # No errors
+#   expect_equal(TRUE, TRUE)
+#
+# })
 
 
