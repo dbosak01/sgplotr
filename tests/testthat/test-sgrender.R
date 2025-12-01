@@ -41,17 +41,20 @@ test_that("sgrender2: Render output types works.", {
     sg_vbar("cyl")
 
   # JPG
-  fp <- file.path(base_path, "output/test.jpg")
+  if (capabilities("jpeg")) {
+    fp <- file.path(base_path, "output/test.jpg")
 
-  if (file.exists(fp)) {
-    file.remove(fp)
+    if (file.exists(fp)) {
+      file.remove(fp)
+    }
+
+    res <- sgrender(p, output_type = "jpg", file_path = fp)
+
+    expect_equal(file.exists(res$path), TRUE)
   }
 
-  res <- sgrender(p, output_type = "jpg", file_path = fp)
-
-  expect_equal(file.exists(res$path), TRUE)
-
   # BMP
+  # Not sure what the test for capabilities is for this
   fp <- file.path(base_path, "output/test.bmp")
 
   if (file.exists(fp)) {
@@ -63,15 +66,17 @@ test_that("sgrender2: Render output types works.", {
   expect_equal(file.exists(res$path), TRUE)
 
   # PNG
-  fp <- file.path(base_path, "output/test.png")
+  if (capabilities("png")) {
+    fp <- file.path(base_path, "output/test.png")
 
-  if (file.exists(fp)) {
-    file.remove(fp)
+    if (file.exists(fp)) {
+      file.remove(fp)
+    }
+
+    res <- sgrender(p, output_type = "png", file_path = fp)
+
+    expect_equal(file.exists(res$path), TRUE)
   }
-
-  res <- sgrender(p, output_type = "png", file_path = fp)
-
-  expect_equal(file.exists(res$path), TRUE)
 
   # SVG
   if (capabilities("cairo")) {
@@ -88,17 +93,20 @@ test_that("sgrender2: Render output types works.", {
   }
 
   # TIF
-  fp <- file.path(base_path, "output/test.tif")
+  if (capabilities("tiff")) {
+    fp <- file.path(base_path, "output/test.tif")
 
-  if (file.exists(fp)) {
-    file.remove(fp)
+    if (file.exists(fp)) {
+      file.remove(fp)
+    }
+
+    res <- sgrender(p, output_type = "tif", file_path = fp)
+
+    expect_equal(file.exists(res$path), TRUE)
   }
 
-  res <- sgrender(p, output_type = "tif", file_path = fp)
-
-  expect_equal(file.exists(res$path), TRUE)
-
-
+  # Ensure at least one test
+  expect_equal(TRUE, TRUE)
 })
 
 

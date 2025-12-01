@@ -81,7 +81,10 @@ sgrender <- function(plt, output_type = NULL, file_path = NULL, height = NULL,
 
   # To avoid PDF file being created
   # Actually created on call to par()
-  pdf(NULL)
+  # when running tests
+  if (!interactive()) {
+    pdf(NULL)
+  }
 
   # Store current margins
   # May be changed in sub-functions
@@ -183,12 +186,8 @@ setup_output <- function(sgr) {
       wdth <- sgr$width
     }
 
-    # if (capabilities("cairo")) {
-    #   svg(filename = pth, height = hgt, width = wdth)
-    # } else {
-      svglite::svglite(pth, height = hgt, width = wdth)
+    svglite::svglite(pth, height = hgt, width = wdth)
 
-    # }
 
   } else if (tolower(sgr$output_type) %in% c("jpg", "jpeg")) {
 
