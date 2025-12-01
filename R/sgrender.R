@@ -358,7 +358,8 @@ render_vbar <- function(plt, cmd, interactive = FALSE) {
 
   # If no output file and not interactive, don't run.
   # Will be necessary to pass CRAN checks.
-  if (interactive & interactive()) {
+  if ((interactive & interactive()) |
+      !interactive) {
 
     # Bar chart
     barplot(mdat,
@@ -382,8 +383,8 @@ render_vbar <- function(plt, cmd, interactive = FALSE) {
     #
     #   legend(
     #   )
-    # }
-
   }
+
+ # }
 
 }
